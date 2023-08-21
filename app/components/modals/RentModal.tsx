@@ -16,6 +16,7 @@ import Input from "../inputs/Input";
 import Heading from "../Heading";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
+import ImageUpload from "../inputs/ImageUpload";
 
 enum STEPS {
   CATEGORY = 0,
@@ -208,6 +209,10 @@ const RentModal = () => {
         <Heading
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
+        />
+        <ImageUpload
+          value={imageSrc}
+          onChange={(value) => setCustomValue("imageSrc", value)}
         />
       </div>
     );
