@@ -1,16 +1,16 @@
 "use client";
 
-import useCountries from "@/app/hooks/useCountries";
-import { Listing, Reservation } from "@prisma/client";
-
-import { SafeUser } from "@/app/types";
-import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
-import { format } from "date-fns";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { Listing, Reservation } from "@prisma/client";
+import { format } from "date-fns";
+
+import useCountries from "@/app/hooks/useCountries";
+import { SafeUser } from "@/app/types";
+import { useCallback, useMemo } from "react";
+
 import HeartButton from "../HeartButton";
 import Button from "../Button";
-
 interface ListingCardProps {
   data: Listing;
   reservation?: Reservation;
@@ -74,7 +74,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
       className="col-span-1 cursor-pointer group"
     >
       <div className="flex flex-col gap-2 w-full">
-        <div className="aspect-square w-full relatve overflow-hidden rounded-xl">
+        <div className="aspect-square w-full relative overflow-hidden rounded-xl">
           <Image
             fill
             alt="Listing"

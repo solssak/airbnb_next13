@@ -3,20 +3,20 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
 import useRentModal from "@/app/hooks/useRentModal";
 
 import Modal from "./Modal";
+import Counter from "../inputs/Counter";
 import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
 import { categories } from "../navbar/Categories";
+import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
-import dynamic from "next/dynamic";
-import Counter from "../inputs/Counter";
-import ImageUpload from "../inputs/ImageUpload";
 
 enum STEPS {
   CATEGORY = 0,
@@ -180,24 +180,24 @@ const RentModal = () => {
           subtitle="What amenitis do you have?"
         />
         <Counter
-          title="Guests"
-          subtitle="How Many guests do you allow?"
-          value={guestCount}
           onChange={(value) => setCustomValue("guestCount", value)}
+          value={guestCount}
+          title="Guests"
+          subtitle="How many guests do you allow?"
         />
         <hr />
         <Counter
-          title="Rooms"
-          subtitle="How Many Rooms do you have?"
-          value={roomCount}
           onChange={(value) => setCustomValue("roomCount", value)}
+          value={roomCount}
+          title="Rooms"
+          subtitle="How many rooms do you have?"
         />
         <hr />
         <Counter
-          title="Bathrooms"
-          subtitle="How Many Bathrooms do you have?"
-          value={bathroomCount}
           onChange={(value) => setCustomValue("bathroomCount", value)}
+          value={bathroomCount}
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have?"
         />
       </div>
     );
@@ -211,8 +211,8 @@ const RentModal = () => {
           subtitle="Show guests what your place looks like!"
         />
         <ImageUpload
-          value={imageSrc}
           onChange={(value) => setCustomValue("imageSrc", value)}
+          value={imageSrc}
         />
       </div>
     );
