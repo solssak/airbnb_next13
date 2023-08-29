@@ -1,13 +1,16 @@
-import getListings from "./actions/getListings";
+import getCurrentUser from "./actions/getCurrentUser";
+import getListings, { IListingsParams } from "./actions/getListings";
 
 import Container from "@/app/components/Container";
 import ClientOnly from "./components/ClientOnly";
 import EmptyState from "@/app/components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
-import getCurrentUser from "./actions/getCurrentUser";
+interface HomeProps {
+  searchParams: IListingsParams;
+}
 
-export default async function Home() {
-  const listings = await getListings();
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
@@ -35,4 +38,6 @@ export default async function Home() {
       </Container>
     </ClientOnly>
   );
-}
+};
+
+export default Home;
