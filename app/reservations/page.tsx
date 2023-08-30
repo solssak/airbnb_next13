@@ -3,7 +3,7 @@ import ClientOnly from "../components/ClientOnly";
 
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservations from "../actions/getReservations";
-import RservationsClient from "./RservationsClient";
+import ReservationsClient from "./RservationsClient";
 
 const ReservationsPage = async () => {
   const currentUser = await getCurrentUser();
@@ -33,7 +33,7 @@ const ReservationsPage = async () => {
 
   return (
     <ClientOnly>
-      <RservationsClient
+      <ReservationsClient
         reservations={reservations}
         currentUser={currentUser}
       />
